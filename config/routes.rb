@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  resources :users do 
+    resources :treatments
+    resources :exams
+    resources :consultations
+  end
   resources :treatments
   resources :exams
   resources :consultations
