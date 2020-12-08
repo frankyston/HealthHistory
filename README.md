@@ -1,5 +1,5 @@
 
-_HealthHistory_ é uma ferramenta de historico de consultas medicas.
+_HealthHistory_ é uma ferramenta de historico e gerenciamento de exames e consultas medicas.
 
 ## _HealthHistory_ team
 
