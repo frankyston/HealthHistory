@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  name_of_professional: MyString
+  consultation_date: 2020-12-08 11:21:39
+  user: one
+  shared_with: 1
+
+two:
+  title: MyString
+  name_of_professional: MyString
+  consultation_date: 2020-12-08 11:21:39
+  user: two
+  shared_with: 1

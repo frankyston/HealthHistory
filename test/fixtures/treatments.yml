@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  treatment_date: 2020-12-08 11:26:48
+  treatment_location: MyString
+  files: MyString
+  user: one
+  shared: 1
+
+two:
+  treatment_date: 2020-12-08 11:26:48
+  treatment_location: MyString
+  files: MyString
+  user: two
+  shared: 1
