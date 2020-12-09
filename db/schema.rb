@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_12_08_142648) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,4 +67,5 @@ ActiveRecord::Schema.define(version: 2020_12_08_142648) do
   add_foreign_key "consultations", "users"
   add_foreign_key "exams", "users"
   add_foreign_key "treatments", "users"
+
 end
