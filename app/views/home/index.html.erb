@@ -5,8 +5,14 @@
     <hr class="my-4">
     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
     <p class="lead">
-      <a class="btn btn-primary btn-lg" href="#" role="button">LogIn</a>
-      <a class="btn btn-primary btn-lg" href="#" role="button">LogOut</a>
+      <% if user_signed_in? %>
+        <%= current_user.name %> 
+        <br />
+        <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+        <%= link_to 'Log In', user_session_path %>
+      <% end %>
     </p>
   </div>
 </div>
