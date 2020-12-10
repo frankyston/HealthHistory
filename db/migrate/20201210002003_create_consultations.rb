@@ -5,8 +5,8 @@ class CreateConsultations < ActiveRecord::Migration[6.0]
       t.string :name_of_professional
       t.date :consultation_date
       t.text :files
-      t.references :user_id, null: false, foreign_key: true
-      t.bool :shared
+      t.references :user, null: false, foreign_key: true
+      t.boolean :shared
 
       t.timestamps
     end
