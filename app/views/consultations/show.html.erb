@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @consultation.title %>
+</p>
+
+<p>
+  <strong>Name of professional:</strong>
+  <%= @consultation.name_of_professional %>
+</p>
+
+<p>
+  <strong>Consultation date:</strong>
+  <%= @consultation.consultation_date %>
+</p>
+
+<p>
+  <strong>Files:</strong>
+  <%= @consultation.files %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @consultation.user_id_id %>
+</p>
+
+<p>
+  <strong>Shared:</strong>
+  <%= @consultation.shared %>
+</p>
+
+<%= link_to 'Edit', edit_consultation_path(@consultation) %> |
+<%= link_to 'Back', consultations_path %>
