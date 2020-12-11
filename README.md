@@ -1,3 +1,9 @@
+<!-- https://raw.githubusercontent.com/fastlane/fastlane/master/README.md -->
+## About _HealthHistory_
+This repository is a project made by class 1 of the One Bit Code bootcamp.
+
+The idea of the project is a system of history of consultations, treatment and medical examinations registered by the user and shared with health professionals if he wishes.
+
 ## _HealthHistory_ team
 
 <!-- This table is regenerated and resorted on each release -->
@@ -68,8 +74,13 @@
 </table>
 
 
-## License
+## Instalation
 
-This project is licensed under the terms of the MIT license. See the [LICENSE](LICENSE) file.
+This project is done in version 2.7.1 of ruby and 6.0.3.4 of rails.
 
-> This project and all fastlane tools are in no way affiliated with Apple Inc. This project is open source under the MIT license, which means you have full access to the source code and can modify it to fit your own needs. All fastlane tools run on your own computer or server, so your credentials or other sensitive information will never leave your own computer. You are responsible for how you use fastlane tools.
+1. Clone Project
+2. Configure username and password on `config/database.yml`
+3. rails db:create 
+4. rails db:migrate
+5. rails s
+
