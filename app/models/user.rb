@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :treatments
+  has_many :consultations
+  has_many :exams
+
   validates :name, presence: true
   validates :email, presence: true
   validates :email, uniqueness: true
@@ -25,3 +29,4 @@ class User < ApplicationRecord
   has_many :physicians,
            through: :my_physician, source: :physician
 end
+

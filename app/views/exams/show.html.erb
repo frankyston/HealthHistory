@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @exam.title %>
+</p>
+
+<p>
+  <strong>Exam date:</strong>
+  <%= @exam.exam_date %>
+</p>
+
+<p>
+  <strong>Exam location:</strong>
+  <%= @exam.exam_location %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @exam.user_id %>
+</p>
+
+<p>
+  <strong>Shared:</strong>
+  <%= @exam.shared %>
+</p>
+
+<%= link_to 'Edit', edit_exam_path(@exam) %> |
+<%= link_to 'Back', exams_path %>
