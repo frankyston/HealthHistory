@@ -4,7 +4,7 @@ class TreatmentsController < ApplicationController
   # GET /treatments
   # GET /treatments.json
   def index
-    @treatments = Treatment.all
+    @treatments = current_user.treatments.all
   end
 
   # GET /treatments/1
@@ -14,7 +14,7 @@ class TreatmentsController < ApplicationController
 
   # GET /treatments/new
   def new
-    @treatment = Treatment.new
+    @treatment = current_user.treatments.new
   end
 
   # GET /treatments/1/edit
@@ -24,7 +24,7 @@ class TreatmentsController < ApplicationController
   # POST /treatments
   # POST /treatments.json
   def create
-    @treatment = Treatment.new(treatment_params)
+    @treatment = current_user.treatments.new(treatment_params)
 
     respond_to do |format|
       if @treatment.save
