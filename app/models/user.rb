@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :consultations
   has_many :exams
 
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :email, uniqueness: true
+
 end
