@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  exam_date: 2020-12-08 11:26:41
+  exam_location: MyString
+  user: one
+  shared: 1
+
+two:
+  title: MyString
+  exam_date: 2020-12-08 11:26:41
+  exam_location: MyString
+  user: two
+  shared: 1
