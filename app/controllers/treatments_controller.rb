@@ -64,7 +64,7 @@ class TreatmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_treatment
-      @treatment = Treatment.find(params[:id])
+      @treatment = current_user.treatments.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
