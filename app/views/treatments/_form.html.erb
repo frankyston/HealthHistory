@@ -10,6 +10,10 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
 
   <div class="field">
     <%= form.label :treatment_date %>
@@ -26,12 +30,7 @@
     <%= form.text_field :files %>
   </div>
 
-  <div class="field">
-    <%= form.label :shared %>
-    <%= form.number_field :shared %>
-  </div>
-
-  <div class="actions">
+   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>

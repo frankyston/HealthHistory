@@ -5,6 +5,9 @@ class TreatmentsController < ApplicationController
   # GET /treatments.json
   def index
     @treatments = current_user.treatments.all
+    if params[:title].present?
+      @treatments = @treatments.where("lower(title) ilike '%#{params[:title].downcase}%'")
+    end
   end
 
   # GET /treatments/1
@@ -69,6 +72,6 @@ class TreatmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def treatment_params
-      params.require(:treatment).permit(:treatment_date, :treatment_location, :files, :user_id, :shared)
+      params.require(:treatment).permit(:treatment_date, :treatment_location, :files, :user_id, :shared, :title)
     end
 end
