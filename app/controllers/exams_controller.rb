@@ -4,7 +4,7 @@ class ExamsController < ApplicationController
   # GET /exams
   # GET /exams.json
   def index
-    @exams = Exam.all
+    @exams = current_user.exams.all
   end
 
   # GET /exams/1
@@ -14,7 +14,7 @@ class ExamsController < ApplicationController
 
   # GET /exams/new
   def new
-    @exam = Exam.new
+    @exam = current_user.exams.new
   end
 
   # GET /exams/1/edit
@@ -24,7 +24,7 @@ class ExamsController < ApplicationController
   # POST /exams
   # POST /exams.json
   def create
-    @exam = Exam.new(exam_params)
+    @exam = current_user.exams.new(exam_params)
 
     respond_to do |format|
       if @exam.save
@@ -64,7 +64,7 @@ class ExamsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_exam
-      @exam = Exam.find(params[:id])
+      @exam = current_user.exams.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
