@@ -69,6 +69,6 @@ class ConsultationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def consultation_params
-      params.require(:consultation).permit(:title, :name_of_professional, :consultation_date, :user_id, :shared_with)
+      params.require(:consultation).permit(:title, :name_of_professional, :consultation_date, :current_user, :shared_with)
     end
 end
