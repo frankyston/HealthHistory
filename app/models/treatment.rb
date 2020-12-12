@@ -3,4 +3,5 @@ class Treatment < ApplicationRecord
 
   validates :treatment_date, presence: true
   validates :treatment_location, presence: true
+  validates :files, presence: true
 end
