@@ -11,27 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :treatment_date %>
-    <%= form.datetime_select :treatment_date %>
+<div class="row">
+  <div class="col-lg-6 col-sm-12 col-md-12">
+    <%= form.label :treatment_date, :class =>"form-label" %>
   </div>
-
-  <div class="field">
-    <%= form.label :treatment_location %>
-    <%= form.text_field :treatment_location %>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+    <%= form.datetime_select :treatment_date, :class=>"form-select" %>
   </div>
-
-  <div class="field">
-    <%= form.label :files %>
-    <%= form.text_field :files %>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+    <%= form.label :treatment_location, :class =>"form-label" %>
+    <%= form.text_field :treatment_location, :class=>"form-control" %>
+  </div>  
+</div>
+<div class="row">
+  <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+    <%= form.label :files, :class =>"form-label" %>
+    <%= form.text_field :files, :class=>"form-control" %>
   </div>
-
-  <div class="field">
-    <%= form.label :shared %>
-    <%= form.number_field :shared %>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+    <%= form.label :shared, :class =>"form-label" %>
+    <%= form.number_field :shared, :class=>"form-control" %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+    <div class="actions">
+      <%= form.submit :class =>"btn btn-primary" %>
+    </div>
   </div>
+</div>
+  
 <% end %>
