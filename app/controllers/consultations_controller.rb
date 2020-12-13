@@ -4,7 +4,10 @@ class ConsultationsController < ApplicationController
   # GET /consultations
   # GET /consultations.json
   def index
-    @consultations = current_user.Consultation.all
+    @consultations = current_user.consultations.all
+    if params[:title].present?
+      @consultations = @consultations.where("lower(title) ilike '%#{params[:title].downcase}%'")
+    end
   end
 
   # GET /consultations/1
@@ -14,7 +17,7 @@ class ConsultationsController < ApplicationController
 
   # GET /consultations/new
   def new
-    @consultation = current_user.Consultation.new
+    @consultation = current_user.consultations.new
   end
 
   # GET /consultations/1/edit
@@ -24,7 +27,7 @@ class ConsultationsController < ApplicationController
   # POST /consultations
   # POST /consultations.json
   def create
-    @consultation = current_user.Consultation.new(consultation_params)
+    @consultation = current_user.consultations.new(consultation_params)
 
     respond_to do |format|
       if @consultation.save
@@ -64,7 +67,7 @@ class ConsultationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_consultation
-      @consultation = current_user.Consultation.find(params[:id])
+      @consultation = current_user.consultations.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
