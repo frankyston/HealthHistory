@@ -2,9 +2,20 @@
 
 <h1>Tratamentos</h1>
 
+<div class = "row">
+  <div class="col-sm-6">
+    <form method="get" class="busca">
+      <label>Título:</label>
+      <input type="text" class="form-control" name="title" value="<%= params[:title] %>" >
+      <input type="submit" value="Buscar" class="btn btn-primary" style="margin-top:10px">
+    </form>
+  </div>
+</div>
+
 <table class="table table-hover table-striped">
   <thead>
     <tr>
+      <th scope="col">Título</th>
       <th scope="col">Data</th>
       <th scope="col">Localização</th>
       <th scope="col">Arquivos</th>
@@ -17,6 +28,7 @@
   <tbody>
     <% @treatments.each do |treatment| %>
       <tr>
+       <td><%=  treatment.title %></td>
         <td><%= treatment.treatment_date %></td>
         <td><%= treatment.treatment_location %></td>
         <td><%= treatment.files %></td>

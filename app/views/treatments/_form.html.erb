@@ -10,7 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+<div class="row">
+  <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+    <%= form.label :title , :class =>"form-label" %>
+    <%= form.text_field :title , :class=>"form-control" %>
+   </div>  
+</div>
 <div class="row">
   <div class="col-lg-6 col-sm-12 col-md-12">
     <%= form.label :treatment_date, :class =>"form-label" %>
