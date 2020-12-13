@@ -6,11 +6,11 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto my-2 my-lg-0">
         <% if user_signed_in? %>
-          <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-x1 js-scroll-trigger' %>
-          <%= link_to 'DashBoard', dashboard_index_path, class: 'btn btn-primary btn-x1 js-scroll-trigger' %>
+          <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-x1 text-white js-scroll-trigger' %>
+          <%= link_to 'Dashboard', dashboard_index_path, class: 'btn btn-primary btn-x1 text-white js-scroll-trigger' %>
         <% else %>
-          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary btn-x1 js-scroll-trigger' %>
-          <%= link_to 'Log In', dashboard_index_path, class: 'btn btn-primary btn-x1 js-scroll-trigger' %>
+          <%= link_to 'Cadastre-se', new_user_registration_path, class: 'btn btn-primary btn-x1 text-white js-scroll-trigger' %>
+          <%= link_to 'Entrar', dashboard_index_path, class: 'btn btn-primary btn-x1 text-white js-scroll-trigger' %>
         <% end %>
       </ul>
     </div>

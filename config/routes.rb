@@ -4,12 +4,6 @@ Rails.application.routes.draw do
   get 'dashboard/index'
   root to: 'landing_page#index'
 
-  resources :users do
-    resources :treatments
-    resources :exams
-    resources :consultations
-  end
-
   resources :treatments
   resources :exams
   resources :consultations
