@@ -29,7 +29,7 @@
     <% @treatments.each do |treatment| %>
       <tr>
        <td><%=  treatment.title %></td>
-        <td><%= treatment.treatment_date %></td>
+        <td><%= treatment.treatment_date.strftime("%d/%m/%Y %k:%M") %></td>
         <td><%= treatment.treatment_location %></td>
         <td><%= treatment.files %></td>
         <td><%= treatment.user_id %></td>
