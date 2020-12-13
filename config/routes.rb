@@ -2,13 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'dashboard/index'
-  root to: 'home#index'
+  root to: 'landing_page#index'
 
-  resources :users do 
+  resources :users do
     resources :treatments
     resources :exams
     resources :consultations
   end
+
   resources :treatments
   resources :exams
   resources :consultations
