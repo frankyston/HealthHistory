@@ -4,7 +4,7 @@ class ConsultationsController < ApplicationController
   # GET /consultations
   # GET /consultations.json
   def index
-    @consultations = Consultation.all
+    @consultations = current_user.consultations.all
   end
 
   # GET /consultations/1
@@ -14,7 +14,7 @@ class ConsultationsController < ApplicationController
 
   # GET /consultations/new
   def new
-    @consultation = Consultation.new
+    @consultation = current_user.consultations.new
   end
 
   # GET /consultations/1/edit
@@ -24,11 +24,11 @@ class ConsultationsController < ApplicationController
   # POST /consultations
   # POST /consultations.json
   def create
-    @consultation = Consultation.new(consultation_params)
+    @consultation = current_user.consultations.new(consultation_params)
 
     respond_to do |format|
       if @consultation.save
-        format.html { redirect_to @consultation, notice: 'Consultation was successfully created.' }
+        format.html { redirect_to @consultation, notice: 'Consulta criada com sucesso.' }
         format.json { render :show, status: :created, location: @consultation }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ConsultationsController < ApplicationController
   def update
     respond_to do |format|
       if @consultation.update(consultation_params)
-        format.html { redirect_to @consultation, notice: 'Consultation was successfully updated.' }
+        format.html { redirect_to @consultation, notice: 'Consulta atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @consultation }
       else
         format.html { render :edit }
@@ -56,19 +56,19 @@ class ConsultationsController < ApplicationController
   def destroy
     @consultation.destroy
     respond_to do |format|
-      format.html { redirect_to consultations_url, notice: 'Consultation was successfully destroyed.' }
+      format.html { redirect_to consultations_url, notice: 'Consulta apagada' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_consultation
-      @consultation = Consultation.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_consultation
+    @consultation = current_user.consultations.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def consultation_params
-      params.require(:consultation).permit(:title, :name_of_professional, :consultation_date, :user_id, :shared_with)
-    end
+  # Only allow a list of trusted parameters through.
+  def consultation_params
+    params.require(:consultation).permit(:title, :name_of_professional, :consultation_date, :user_id, :shared_with)
+  end
 end

@@ -11,32 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <%= form.label :title, "Título", class: "form-label" %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :name_of_professional %>
-    <%= form.text_field :name_of_professional %>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <%= form.label :name_of_professional, "Profissional", class: "form-label" %>
+      <%= form.text_field :name_of_professional, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :consultation_date %>
-    <%= form.datetime_select :consultation_date %>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12">
+      <%= form.label :consultation_date, "Data", class: "form-label" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <%= form.datetime_select :consultation_date, class: "form-select" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :shared_with %>
-    <%= form.number_field :shared_with %>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <div class="form-check">
+        <%= form.check_box :shared_with, class: "form-check-input" %>
+        <%= form.label :shared_with, "Compartilhado", class: "form-check-label" %>
+      </div>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Salvar", class: "btn btn-primary text-white" %>
   </div>
 <% end %>
