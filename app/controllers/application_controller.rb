@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user!
-    super unless params[:controller] == 'home'
+    super unless params[:controller] == 'landing_page'
   end
 end
