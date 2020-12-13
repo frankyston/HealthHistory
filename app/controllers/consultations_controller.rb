@@ -5,6 +5,12 @@ class ConsultationsController < ApplicationController
   # GET /consultations.json
   def index
     @consultations = current_user.consultations.all
+<<<<<<< HEAD
+=======
+    if params[:title].present?
+      @consultations = @consultations.where("lower(title) ilike '%#{params[:title].downcase}%'")
+    end
+>>>>>>> ededa21b300e59c4ce61590f3915a0c00e0503f3
   end
 
   # GET /consultations/1
@@ -62,10 +68,17 @@ class ConsultationsController < ApplicationController
   end
 
   private
+<<<<<<< HEAD
   # Use callbacks to share common setup or constraints between actions.
   def set_consultation
     @consultation = current_user.consultations.find(params[:id])
   end
+=======
+    # Use callbacks to share common setup or constraints between actions.
+    def set_consultation
+      @consultation = current_user.consultations.find(params[:id])
+    end
+>>>>>>> ededa21b300e59c4ce61590f3915a0c00e0503f3
 
   # Only allow a list of trusted parameters through.
   def consultation_params
