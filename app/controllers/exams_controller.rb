@@ -5,6 +5,9 @@ class ExamsController < ApplicationController
   # GET /exams.json
   def index
     @exams = current_user.exams.all
+    if params[:title].present?
+      @exams = @exams.where("lower(title) ilike '%#{params[:title].downcase}%'")
+    end
   end
 
   # GET /exams/1
