@@ -1,1 +1,40 @@
-<h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+<table class="table">
+  <tr>
+    <th scope="col">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          <h5 class="card-title">Últimos Tratamentos</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <% @treatments.last(10).each do |treatment| %>
+            <li class="list-group-item"><%= treatment.created_at.to_date %><br><%= treatment.title %></li>
+          <% end %>
+        </ul>
+      </div>
+    </th>
+    <th scope="col">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          <h5 class="card-title">Últimos Exames</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <% @exams.last(10).each do |exam| %>
+            <li class="list-group-item"><%= exam.created_at.to_date %><br><%= exam.title %></li>
+          <% end %>
+        </ul>
+      </div>
+    </th>
+    <th scope="col">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          <h5 class="card-title">Últimas Consultas</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <% @consultations.last(10).each do |consultation| %>
+            <li class="list-group-item"><%= consultation.created_at.to_date %><br><%= consultation.title %></li>
+          <% end %>
+        </ul>
+      </div>
+    </th>
+  </tr>
+</table>
