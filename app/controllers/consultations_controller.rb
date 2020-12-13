@@ -4,7 +4,7 @@ class ConsultationsController < ApplicationController
   # GET /consultations
   # GET /consultations.json
   def index
-    @consultations = Consultation.all
+    @consultations = current_user.Consultation.all
   end
 
   # GET /consultations/1
@@ -14,7 +14,7 @@ class ConsultationsController < ApplicationController
 
   # GET /consultations/new
   def new
-    @consultation = Consultation.new
+    @consultation = current_user.Consultation.new
   end
 
   # GET /consultations/1/edit
@@ -24,7 +24,7 @@ class ConsultationsController < ApplicationController
   # POST /consultations
   # POST /consultations.json
   def create
-    @consultation = Consultation.new(consultation_params)
+    @consultation = current_user.Consultation.new(consultation_params)
 
     respond_to do |format|
       if @consultation.save
@@ -64,11 +64,11 @@ class ConsultationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_consultation
-      @consultation = Consultation.find(params[:id])
+      @consultation = current_user.Consultation.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def consultation_params
-      params.require(:consultation).permit(:title, :name_of_professional, :consultation_date, :current_user, :shared_with)
+      params.require(:consultation).permit(:title, :name_of_professional, :consultation_date, :user_id, :shared_with)
     end
 end
