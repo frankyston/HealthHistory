@@ -1,29 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @consultation.title %>
-</p>
+<form>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <%= label_tag nil, "Título", class: "form-label" %>
+      <%= text_field_tag nil, @consultation.title, class: "form-control", disabled:true %>
+    </div>
+  </div>
 
-<p>
-  <strong>Name of professional:</strong>
-  <%= @consultation.name_of_professional %>
-</p>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <%= label_tag nil, "Profissional", class: "form-label" %>
+      <%= text_field_tag nil, @consultation.name_of_professional, class: "form-control", disabled:true %>
+    </div>
+  </div>
 
-<p>
-  <strong>Consultation date:</strong>
-  <%= @consultation.consultation_date %>
-</p>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12">
+      <%= label_tag nil, "Data", class: "form-label" %>
+    </div>
+  </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @consultation.user_id %>
-</p>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <%= text_field_tag nil, @consultation.consultation_date, class: "form-control", disabled:true %>
+    </div>
+  </div>
 
-<p>
-  <strong>Shared with:</strong>
-  <%= @consultation.shared_with %>
-</p>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <div class="form-check">
+        <%= check_box_tag nil, @consultation.shared_with, !!@consultation.shared_with, disabled: true, class: "form-check-input" %>
+        <%= label_tag nil, "Compartilhado", class: "form-check-label" %>
+      </div>
+    </div>
+  </div>
+</form>
 
-<%= link_to 'Edit', edit_consultation_path(@consultation) %> |
-<%= link_to 'Back', consultations_path %>
+<%= link_to 'Editar', edit_consultation_path(@consultation), class: "btn btn-primary text-white" %> |
+<%= link_to 'Voltar', consultations_path, class: "btn btn-secondary text-white" %>
