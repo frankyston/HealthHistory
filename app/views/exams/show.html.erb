@@ -16,7 +16,7 @@
 
   <div class="row">
     <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
-      <%= text_field_tag nil, @exam.exam_date, class: "form-control", disabled:true %>
+      <%= text_field_tag nil, @exam.exam_date.strftime("%d/%m/%Y %k:%M"), class: "form-control", disabled:true %>
     </div>
   </div>
 
