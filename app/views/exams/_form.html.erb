@@ -11,22 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <%= form.label :title, "Título", class: "form-label" %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :exam_date %>
-    <%= form.datetime_select :exam_date %>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12">
+      <%= form.label :exam_date, "Data", class: "form-label" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :exam_location %>
-    <%= form.text_field :exam_location %>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <%= form.datetime_select :exam_date, class: "form-select" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <%= form.label :exam_location, "Localização", class: "form-label" %>
+      <%= form.text_field :exam_location, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <div class="form-check">
+        <%= form.check_box :shared, class: "form-check-input" %>
+        <%= form.label :shared, "Compartilhado", class: "form-check-label" %>
+      </div>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Salvar", class: "btn btn-primary text-white" %>
   </div>
 <% end %>
