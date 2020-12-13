@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
+  layout :layout_by_resource
 
   protected
 
@@ -10,5 +11,15 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     super unless params[:controller] == 'landing_page'
+  end
+
+  private
+
+  def layout_by_resource
+    if devise_controller?
+      "devise"
+    else
+      "application"
+    end
   end
 end
