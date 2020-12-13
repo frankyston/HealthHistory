@@ -5,6 +5,9 @@ class TreatmentsController < ApplicationController
   # GET /treatments.json
   def index
     @treatments = current_user.treatments.all
+    if params[:title].present?
+      @treatments = @treatments.where("lower(title) ilike '%#{params[:title].downcase}%'")
+    end
   end
 
   # GET /treatments/1
@@ -28,7 +31,7 @@ class TreatmentsController < ApplicationController
 
     respond_to do |format|
       if @treatment.save
-        format.html { redirect_to @treatment, notice: 'Treatment was successfully created.' }
+        format.html { redirect_to @treatment, notice: 'Tratamento criado com sucesso.' }
         format.json { render :show, status: :created, location: @treatment }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class TreatmentsController < ApplicationController
   def update
     respond_to do |format|
       if @treatment.update(treatment_params)
-        format.html { redirect_to @treatment, notice: 'Treatment was successfully updated.' }
+        format.html { redirect_to @treatment, notice: 'Tratamento atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @treatment }
       else
         format.html { render :edit }
@@ -56,7 +59,7 @@ class TreatmentsController < ApplicationController
   def destroy
     @treatment.destroy
     respond_to do |format|
-      format.html { redirect_to treatments_url, notice: 'Treatment was successfully destroyed.' }
+      format.html { redirect_to treatments_url, notice: 'Tratamento apagado.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +72,6 @@ class TreatmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def treatment_params
-      params.require(:treatment).permit(:treatment_date, :treatment_location, :files, :user_id, :shared)
+      params.require(:treatment).permit(:treatment_date, :treatment_location, :files, :user_id, :shared, :title)
     end
 end

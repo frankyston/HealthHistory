@@ -1,29 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Treatment date:</strong>
+  <strong>Título:</strong>
+  <%= @treatment.title %>
+</p>
+
+<p>
+  <strong>Data:</strong>
   <%= @treatment.treatment_date %>
 </p>
 
 <p>
-  <strong>Treatment location:</strong>
+  <strong>Localização:</strong>
   <%= @treatment.treatment_location %>
 </p>
 
 <p>
-  <strong>Files:</strong>
+  <strong>Arquivos:</strong>
   <%= @treatment.files %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Usuário:</strong>
   <%= @treatment.user_id %>
 </p>
 
 <p>
-  <strong>Shared:</strong>
+  <strong>Compartilhado:</strong>
   <%= @treatment.shared %>
 </p>
 
-<%= link_to 'Edit', edit_treatment_path(@treatment) %> |
-<%= link_to 'Back', treatments_path %>
+<%= link_to 'Editar', edit_treatment_path(@treatment),  :class => 'btn btn-primary text-white' %>
+<%= link_to 'Voltar', treatments_path,  :class => 'btn btn-secondary text-white' %>
