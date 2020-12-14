@@ -7,7 +7,7 @@
         </div>
         <ul class="list-group list-group-flush">
           <% @treatments.last(10).each do |treatment| %>
-            <li class="list-group-item"><%= treatment.created_at.to_date %><br><%= treatment.title %></li>
+            <li class="list-group-item"><%= treatment.created_at.to_date.strftime("%d/%m/%Y") %><br><%= treatment.title %></li>
           <% end %>
         </ul>
       </div>
@@ -19,7 +19,7 @@
         </div>
         <ul class="list-group list-group-flush">
           <% @exams.last(10).each do |exam| %>
-            <li class="list-group-item"><%= exam.created_at.to_date %><br><%= exam.title %></li>
+            <li class="list-group-item"><%= exam.created_at.to_date.strftime("%d/%m/%Y") %><br><%= exam.title %></li>
           <% end %>
         </ul>
       </div>
@@ -31,7 +31,7 @@
         </div>
         <ul class="list-group list-group-flush">
           <% @consultations.last(10).each do |consultation| %>
-            <li class="list-group-item"><%= consultation.created_at.to_date %><br><%= consultation.title %></li>
+            <li class="list-group-item"><%= consultation.created_at.to_date.strftime("%d/%m/%Y") %><br><%= consultation.title %></li>
           <% end %>
         </ul>
       </div>

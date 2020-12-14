@@ -28,7 +28,7 @@
   <% @exams.each do |exam| %>
     <tr>
       <td style="vertical-align: middle;"><%= exam.title %></td>
-      <td style="vertical-align: middle;"><%= exam.exam_date %></td>
+      <td style="vertical-align: middle;"><%= exam.exam_date.strftime("%d/%m/%Y %k:%M") %></td>
       <td style="vertical-align: middle;"><%= exam.exam_location %></td>
       <td style="vertical-align: middle;"><%= exam.user.name %></td>
       <td style="text-align: center; vertical-align: middle;">
