@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  get '/settings/profile', to: 'settings#profile', as: 'user_profile'
+  get '/settings/password', to: 'settings#password', as: 'user_password'
+  patch '/settings/update', to: 'settings#update', as: 'user_update'
+
   devise_for :users
 
   get 'dashboard/index'
