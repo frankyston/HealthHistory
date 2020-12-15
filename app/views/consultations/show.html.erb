@@ -38,7 +38,7 @@
 </form>
 
 <h4>Arquivos anexados</h4>
-<% @consultation.files.each do |file| %>
+<% @exam.files.each do |file| %>
   <%= link_to file.filename, url_for(file), class: 'downloads', target: '_blank' %>
   <br>
 <% end %>

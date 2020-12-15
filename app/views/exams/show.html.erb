@@ -37,5 +37,12 @@
   </div>
 </form>
 
-<%= link_to 'Editar', edit_exam_path(@exam), class: "btn btn-primary text-white" %> |
+<h4>Arquivos anexados</h4>
+<% @exam.files.each do |file| %>
+  <%= link_to file.filename, url_for(file), class: 'downloads', target: '_blank' %>
+  <br>
+<% end %>
+
+<br>
+<%= link_to 'Editar', edit_exam_path(@exam), class: "btn btn-primary text-white" %>
 <%= link_to 'Voltar', exams_path, class: "btn btn-secondary text-white" %>

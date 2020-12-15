@@ -46,6 +46,15 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <div class="form-check">
+        <%= form.file_field :files, multiple: true, class: "form-check-input" %>
+        <%= form.label :files, "Compartilhado", class: "form-check-label" %>
+      </div>
+    </div>
+  </div>
+
   <div class="actions">
     <%= form.submit "Salvar", class: "btn btn-primary text-white" %>
   </div>
