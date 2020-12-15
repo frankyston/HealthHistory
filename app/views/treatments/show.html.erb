@@ -30,5 +30,12 @@
   <%= @treatment.shared %>
 </p>
 
+<h4>Arquivos anexados</h4>
+<% @treatment.files.each do |file| %>
+  <%= link_to file.filename, url_for(file), class: 'downloads', target: '_blank' %>
+  <br>
+<% end %>
+
+<br>
 <%= link_to 'Editar', edit_treatment_path(@treatment),  :class => 'btn btn-primary text-white' %>
 <%= link_to 'Voltar', treatments_path,  :class => 'btn btn-secondary text-white' %>
