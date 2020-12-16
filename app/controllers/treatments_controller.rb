@@ -72,6 +72,6 @@ class TreatmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def treatment_params
-      params.require(:treatment).permit(:treatment_date, :treatment_location, :files, :user_id, :shared, :title)
+      params.require(:treatment).permit(:treatment_date, :treatment_location, :user_id, :shared, :title, files: [])
     end
 end

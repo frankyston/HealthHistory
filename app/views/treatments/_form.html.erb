@@ -32,12 +32,7 @@
     <%= form.text_field :treatment_location, :class=>"form-control" %>
   </div>  
 </div>
-<div class="row">
-  <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
-    <%= form.label :files, :class =>"form-label" %>
-    <%= form.text_field :files, :class=>"form-control" %>
-  </div>
-</div>
+
 <div class="row">
   <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
     <%= form.label :shared, :class =>"form-label" %>
@@ -51,5 +46,14 @@
     </div>
   </div>
 </div>
-  
+
+<div class="row">
+  <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+    <div class="form-check">
+      <%= form.file_field :files, multiple: true, class: "form-check-input" %>
+      <%= form.label :files, "Compartilhado", class: "form-check-label" %>
+    </div>
+  </div>
+</div>
+
 <% end %>
