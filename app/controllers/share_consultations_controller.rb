@@ -1,5 +1,5 @@
 class ShareConsultationsController < ApplicationController
-  before_action :set_appointment, only: [:show, :edit, :destroy]
+  before_action :set_appointment, only: [:show, :destroy]
   def index
     @shared = current_user.shared
   end
@@ -17,6 +17,7 @@ class ShareConsultationsController < ApplicationController
     @appointment.patient_id = current_user.id
     if @appointment.save
       flash[:success] = "Compartilhamento criado com sucesso."
+      @appointment.shared!
       redirect_to appointment_index_path
     else
       flash[:error] = "Erro ao criar o compartilhamento."
