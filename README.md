@@ -81,7 +81,8 @@ This project is done in version 2.7.1 of ruby and 6.0.3.4 of rails.
 2. Configure username and password on `config/database.yml`
 3. rails db:create 
 4. rails db:migrate
-5. rails s
+5. rails db:seed
+6. rails s
 
 ## Database
 
