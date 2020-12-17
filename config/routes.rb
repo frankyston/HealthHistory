@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'dashboard/index'
   root to: 'landing_page#index'
 
+  resources :appointment, :path => "shared", controller: :share_consultations, except: [:edit, :update]
   resources :treatments
   resources :exams
   resources :consultations
