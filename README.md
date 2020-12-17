@@ -103,3 +103,16 @@ This project is done in version 2.7.1 of ruby and 6.0.3.4 of rails.
 
 ### Treatments
 <img src='prints/tratamentos.png'>
+
+### Profile
+<img src='prints/profile.png'>
+
+### Change password
+<img src='prints/trocar-senha.png'>
+
+### Login
+<img src='prints/login.png'>
+
+### Sign Up
+<img src='prints/cadastre-se.png'>
+
