@@ -12,14 +12,15 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :email, uniqueness: true
 
-  # Appointments
-  has_many :my_patients,-> { where status: 1 },
+	# Appointments
+	has_many :shared, foreign_key: 'patient_id',
+					class_name: 'Appointment', dependent: :destroy
+
+  has_many :shared_with_me, -> { where status: 1 },
             foreign_key: 'physician_id',
             class_name: 'Appointment', dependent: :destroy
 
-  has_many :patients, through: :my_patients, source: :patient
-  has_many :my_physician, foreign_key: 'patient_id',
-          class_name: 'Appointment', dependent: :destroy
-  has_many :physicians, through: :my_physician, source: :physician
-end
+	#has_many :patients, through: :shared_with_me, source: :patient
+	#has_many :physicians, through: :share, source: :physician
 
+end

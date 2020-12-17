@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<form>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <%= label_tag nil, "Usuário compartilhado", class: "form-label" %>
+      <%= text_field_tag nil, @appointment.physician.name, class: "form-control", disabled:true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <%= label_tag nil, "Data do compartilhamento", class: "form-label" %>
+      <%= text_field_tag nil, @appointment.created_at.strftime("%d/%m/%Y %k:%M"), class: "form-control", disabled:true %>
+    </div>
+  </div>
+
+<br>
+<%= link_to 'Voltar', appointment_index_path, class: "btn btn-secondary text-white" %>

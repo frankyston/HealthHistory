@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Compartilhar meu histórico</h1>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Usuário</th>
+    <th>Data</th>
+    <th>Ações</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @shared.each do |share| %>
+    <tr>
+      <td style="vertical-align: middle;"><%= share.physician.name %></td>
+      <td style="vertical-align: middle;"><%= share.created_at.strftime("%d/%m/%Y %k:%M") %></td>
+      <td>
+        <%= link_to 'Visualizar', appointment_path(share), class: "btn btn-info text-white" %>
+        <%= link_to 'Apagar', appointment_path(share), class: "btn btn-danger text-white" , method: :delete, data: { confirm: 'Você tem certeza?' } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Compartilhamento', new_appointment_path, class: "btn btn-primary text-white" %>
+
