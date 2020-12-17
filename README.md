@@ -73,7 +73,6 @@ The idea of the project is a system of history of consultations, treatment and m
 </td>
 </table>
 
-
 ## Instalation
 
 This project is done in version 2.7.1 of ruby and 6.0.3.4 of rails.
@@ -84,3 +83,23 @@ This project is done in version 2.7.1 of ruby and 6.0.3.4 of rails.
 4. rails db:migrate
 5. rails s
 
+## Database
+
+<img src='prints/banco-de-dados.png'>
+
+## Screenshot of system
+
+### Dashboard
+<img src='prints/dashboard.png'>
+
+### Shared Consultations
+<img src='prints/compartilhar-historico.png'>
+
+### Exams
+<img src='prints/exames.png'>
+
+### Consultations
+<img src='prints/meu-historico.png'>
+
+### Treatments
+<img src='prints/tratamentos.png'>

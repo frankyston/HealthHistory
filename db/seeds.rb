@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!([
+  { name: 'Frankyston Lins', email: 'frankyston@gmail.com', password: '123456', password_confirmation: '123456' },
   { name: 'Marcus vinicius', email: 'vinicius@gmail.com', password: '12345678', password_confirmation: '12345678' },
   { name: 'Luiz Otavio', email: 'luiz@gmail.com', password: '12345678', password_confirmation: '12345678' },
   { name: 'Joao Carlos', email: 'jc@gmail.com', password: '12345678', password_confirmation: '12345678' },

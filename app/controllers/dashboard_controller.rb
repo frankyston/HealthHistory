@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
   def index
-    @treatments = current_user.treatments
-    @exams = current_user.exams
+    @treatments = Treatment.where(consultation_id: current_user.consultations)
+    @exams = Exam.where(consultation_id: current_user.consultations)
     @consultations = current_user.consultations
   end
 end

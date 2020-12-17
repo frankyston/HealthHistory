@@ -1,5 +1,5 @@
 class Exam < ApplicationRecord
-  belongs_to :user
+  belongs_to :consultation
 
   validates :title, presence: true
   validates :exam_date, presence: true

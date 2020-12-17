@@ -1,12 +1,13 @@
 class ExamsController < ApplicationController
+  before_action :set_consultation
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
 
   # GET /exams
   # GET /exams.json
   def index
-    @exams = current_user.exams.all
+    @exams = @consultation.exams.all
     if params[:title].present?
-      @exams = @exams.where("lower(title) ilike '%#{params[:title].downcase}%'")
+      @exams = @consultation.exams.where("lower(title) ilike '%#{params[:title].downcase}%'")
     end
   end
 
@@ -17,25 +18,25 @@ class ExamsController < ApplicationController
 
   # GET /exams/new
   def new
-    @exam = current_user.exams.new
+    @exam = @consultation.exams.new
+    @url = consultation_exams_path(@consultation)
   end
 
   # GET /exams/1/edit
   def edit
+    @url = consultation_exam_path(@consultation)
   end
 
   # POST /exams
   # POST /exams.json
   def create
-    @exam = current_user.exams.new(exam_params)
+    @exam = @consultation.exams.new(exam_params)
 
     respond_to do |format|
       if @exam.save
-        format.html { redirect_to @exam, notice: 'Exame criado com sucesso.' }
-        format.json { render :show, status: :created, location: @exam }
+        format.html { redirect_to consultation_exams_path(@consultation), notice: 'Exame criado com sucesso.' }
       else
         format.html { render :new }
-        format.json { render json: @exam.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,11 +46,9 @@ class ExamsController < ApplicationController
   def update
     respond_to do |format|
       if @exam.update(exam_params)
-        format.html { redirect_to @exam, notice: 'Exame atualizado com sucesso.' }
-        format.json { render :show, status: :ok, location: @exam }
+        format.html { redirect_to consultation_exams_path(@consultation), notice: 'Exame atualizado com sucesso.' }
       else
         format.html { render :edit }
-        format.json { render json: @exam.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,15 +58,18 @@ class ExamsController < ApplicationController
   def destroy
     @exam.destroy
     respond_to do |format|
-      format.html { redirect_to exams_url, notice: 'Exame apagado.' }
-      format.json { head :no_content }
+      format.html { redirect_to consultation_exams_path(@consultation), notice: 'Exame apagado.' }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_exam
-      @exam = current_user.exams.find(params[:id])
+      @exam = @consultation.exams.find(params[:id])
+    end
+
+    def set_consultation
+      @consultation = current_user.consultations.find(params[:consultation_id])
     end
 
     # Only allow a list of trusted parameters through.

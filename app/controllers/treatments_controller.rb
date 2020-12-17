@@ -1,10 +1,11 @@
 class TreatmentsController < ApplicationController
+  before_action :set_consultation
   before_action :set_treatment, only: [:show, :edit, :update, :destroy]
 
   # GET /treatments
   # GET /treatments.json
   def index
-    @treatments = current_user.treatments.all
+    @treatments = @consultation.treatments.all
     if params[:title].present?
       @treatments = @treatments.where("lower(title) ilike '%#{params[:title].downcase}%'")
     end
@@ -17,25 +18,25 @@ class TreatmentsController < ApplicationController
 
   # GET /treatments/new
   def new
-    @treatment = current_user.treatments.new
+    @treatment = @consultation.treatments.new
+    @url = consultation_treatments_path(@consultation)
   end
 
   # GET /treatments/1/edit
   def edit
+    @url = consultation_treatment_path(@consultation)
   end
 
   # POST /treatments
   # POST /treatments.json
   def create
-    @treatment = current_user.treatments.new(treatment_params)
+    @treatment = @consultation.treatments.new(treatment_params)
 
     respond_to do |format|
       if @treatment.save
-        format.html { redirect_to @treatment, notice: 'Tratamento criado com sucesso.' }
-        format.json { render :show, status: :created, location: @treatment }
+        format.html { redirect_to consultation_treatments_path(@consultation, @treatment), notice: 'Tratamento criado com sucesso.' }
       else
         format.html { render :new }
-        format.json { render json: @treatment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,11 +46,9 @@ class TreatmentsController < ApplicationController
   def update
     respond_to do |format|
       if @treatment.update(treatment_params)
-        format.html { redirect_to @treatment, notice: 'Tratamento atualizado com sucesso.' }
-        format.json { render :show, status: :ok, location: @treatment }
+        format.html { redirect_to consultation_treatments_path(@consultation, @treatment), notice: 'Tratamento atualizado com sucesso.' }
       else
         format.html { render :edit }
-        format.json { render json: @treatment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,15 +58,18 @@ class TreatmentsController < ApplicationController
   def destroy
     @treatment.destroy
     respond_to do |format|
-      format.html { redirect_to treatments_url, notice: 'Tratamento apagado.' }
-      format.json { head :no_content }
+      format.html { redirect_to consultation_treatments_path(@consultation), notice: 'Tratamento apagado.' }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_treatment
-      @treatment = current_user.treatments.find(params[:id])
+      @treatment = @consultation.treatments.find(params[:id])
+    end
+
+    def set_consultation
+      @consultation = current_user.consultations.find(params[:consultation_id])
     end
 
     # Only allow a list of trusted parameters through.

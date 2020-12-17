@@ -9,9 +9,13 @@ Rails.application.routes.draw do
   get 'dashboard/index'
   root to: 'landing_page#index'
 
-  resources :appointment, :path => "shared", controller: :share_consultations, except: [:edit, :update]
-  resources :treatments
-  resources :exams
-  resources :consultations
+  resources :appointment, :path => "share", controller: :share_consultations, except: [:edit, :update]
+  get '/shared', to: 'shared_consultations#index', as: 'user_shared'
+  get '/shared/:id', to: 'shared_consultations#show', as: 'user_shared_detail'
+
+  resources :consultations do
+    resources :treatments
+    resources :exams
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

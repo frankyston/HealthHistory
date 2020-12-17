@@ -1,0 +1,24 @@
+<%= form_with(model: @appointment, url: appointment_index_path, local: true) do |form| %>
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this exam from being saved:</h2>
+
+      <ul>
+        <% @appointment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+      <%= form.label :physician_id, "Usuário", class: "form-label" %>
+      <%= form.text_field :physician_id, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Salvar", class: "btn btn-primary text-white" %>
+  </div>
+<% end %>

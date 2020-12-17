@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Consultas de <%= @user.name %></h1>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Titulo</th>
+    <th>Nome do profissional</th>
+    <th>Data da Consulta</th>
+    <th>Ações</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @consultations.each do |consultation| %>
+    <tr>
+      <td style="vertical-align: middle;"><%= consultation.title %></td>
+      <td style="vertical-align: middle;"><%= consultation.name_of_professional %></td>
+      <td style="vertical-align: middle;"><%= consultation.consultation_date.strftime("%d/%m/%Y %k:%M") %></td>
+      <td>
+        <%= link_to 'Visualizar', consultation, class: "btn btn-info text-white", target: '_blank' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
