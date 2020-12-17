@@ -2,5 +2,5 @@
 
 <%= render 'form', treatment: @treatment %>
 
-<%= link_to 'Visualizar', @treatment,  :class => 'btn btn-primary text-white' %>
-<%= link_to 'Voltar', treatments_path,  :class => 'btn btn-secondary text-white' %>
+<%= link_to 'Visualizar', consultation_treatment_path(@consultation, @treatment),  :class => 'btn btn-primary text-white' %>
+<%= link_to 'Voltar', consultation_treatments_path(@consultation),  :class => 'btn btn-secondary text-white' %>

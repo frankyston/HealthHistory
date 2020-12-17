@@ -2,5 +2,5 @@
 
 <%= render 'form', exam: @exam %>
 
-<%= link_to 'Visualizar', @exam, class: "btn btn-info text-white" %>
-<%= link_to 'Voltar', exams_path, class: "btn btn-secondary text-white" %>
+<%= link_to 'Visualizar', consultation_exam_path(@consultation, @exam), class: "btn btn-info text-white" %>
+<%= link_to 'Voltar', consultation_exams_path(@consultation), class: "btn btn-secondary text-white" %>

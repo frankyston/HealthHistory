@@ -16,11 +16,6 @@
 </p>
 
 <p>
-  <strong>Usuário:</strong>
-  <%= @treatment.user_id %>
-</p>
-
-<p>
   <strong>Compartilhado:</strong>
   <%= @treatment.shared %>
 </p>
@@ -32,5 +27,5 @@
 <% end %>
 
 <br>
-<%= link_to 'Editar', edit_treatment_path(@treatment),  :class => 'btn btn-primary text-white' %>
-<%= link_to 'Voltar', treatments_path,  :class => 'btn btn-secondary text-white' %>
+<%= link_to 'Editar', edit_consultation_treatment_path(@consultation, @treatment),  :class => 'btn btn-primary text-white' %>
+<%= link_to 'Voltar', consultation_treatments_path(@consultation),  :class => 'btn btn-secondary text-white' %>

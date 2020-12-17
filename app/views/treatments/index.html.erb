@@ -18,7 +18,6 @@
       <th scope="col">Título</th>
       <th scope="col">Data</th>
       <th scope="col">Localização</th>
-      <th scope="col">Usuário</th>
       <th scope="col">Compartilhado</th>
       <th scope="col">Ações</th>
     </tr>
@@ -27,15 +26,14 @@
   <tbody>
     <% @treatments.each do |treatment| %>
       <tr>
-       <td><%=  treatment.title %></td>
+        <td><%= treatment.title %></td>
         <td><%= treatment.treatment_date.strftime("%d/%m/%Y %k:%M") %></td>
         <td><%= treatment.treatment_location %></td>
-        <td><%= treatment.user_id %></td>
         <td><%= treatment.shared %></td>
         <td>
-          <%= link_to 'Visualizar', treatment, :class => 'btn btn-info text-white' %>
-          <%= link_to 'Editar', edit_treatment_path(treatment), :class => 'btn btn-secondary text-white' %>
-          <%= link_to 'Apagar', treatment, method: :delete, data: { confirm: 'Você tem certeza?' }, :class => 'btn btn-danger text-white' %>
+          <%= link_to 'Visualizar', consultation_treatment_path(@consultation, treatment), :class => 'btn btn-info text-white' %>
+          <%= link_to 'Editar', edit_consultation_treatment_path(@consultation, treatment), :class => 'btn btn-secondary text-white' %>
+          <%= link_to 'Apagar', consultation_treatment_path(@consultation, treatment), method: :delete, data: { confirm: 'Você tem certeza?' }, :class => 'btn btn-danger text-white' %>
         </td>
       </tr>
     <% end %>
@@ -44,4 +42,4 @@
 
 <br>
 
-<%= link_to 'Novo Tratamento', new_treatment_path, :class => 'btn btn-primary text-white' %>
+<%= link_to 'Novo Tratamento', new_consultation_treatment_path(@consultation), :class => 'btn btn-primary text-white' %>

@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-  <% @shared.each do |share| %>
+  <% @shares.each do |share| %>
     <tr>
       <td style="vertical-align: middle;"><%= share.physician.name %></td>
       <td style="vertical-align: middle;"><%= share.created_at.strftime("%d/%m/%Y %k:%M") %></td>

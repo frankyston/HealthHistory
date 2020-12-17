@@ -67,11 +67,7 @@ class ConsultationsController < ApplicationController
 
   private
   def set_consultation
-    @consultation = current_user.consultations.find(params[:id])
-  end
-
-  def set_consultation
-    @consultation = current_user.consultations.find(params[:id])
+    @consultation = Consultation.find(params[:id])
   end
 
   def consultation_params

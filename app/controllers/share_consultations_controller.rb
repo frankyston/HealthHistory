@@ -1,7 +1,7 @@
 class ShareConsultationsController < ApplicationController
   before_action :set_appointment, only: [:show, :destroy]
   def index
-    @shared = current_user.shared
+    @shares = current_user.shared
   end
 
   def new

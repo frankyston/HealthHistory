@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Consultas compartilhadas comigo</h1>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Usuário</th>
+    <th>Data</th>
+    <th>Ações</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @shared.each do |share| %>
+    <tr>
+      <td style="vertical-align: middle;"><%= share.patient.name %></td>
+      <td style="vertical-align: middle;"><%= share.created_at.strftime("%d/%m/%Y %k:%M") %></td>
+      <td>
+        <%= link_to 'Ver as consultas', user_shared_detail_path(share.patient_id), class: "btn btn-info text-white" %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

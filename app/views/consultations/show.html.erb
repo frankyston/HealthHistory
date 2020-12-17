@@ -38,10 +38,74 @@
 </form>
 
 <h4>Arquivos anexados</h4>
-<% @exam.files.each do |file| %>
+<% @consultation.files.each do |file| %>
   <%= link_to file.filename, url_for(file), class: 'downloads', target: '_blank' %>
   <br>
 <% end %>
+
+<h4>Exames</h4>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Título</th>
+    <th>Data</th>
+    <th>Localização</th>
+    <th>Usuário</th>
+    <th>Compartilhado</th>
+    <th>Arquivos</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @consultation.exams.each do |exam| %>
+    <tr>
+      <td style="vertical-align: middle;"><%= exam.title %></td>
+      <td style="vertical-align: middle;"><%= exam.exam_date.strftime("%d/%m/%Y %k:%M") %></td>
+      <td style="vertical-align: middle;"><%= exam.exam_location %></td>
+      <td style="vertical-align: middle;"><%= exam.consultation.user.name %></td>
+      <td style="text-align: center; vertical-align: middle;">
+        <%= check_box_tag nil, exam.shared, !!exam.shared, disabled: true %>
+      </td>
+      <td>
+        <% exam.files.each do |file| %>
+          <%= link_to file.filename, url_for(file), class: 'downloads', target: '_blank' %>
+          <br>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h4>Tratamentos</h4>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Título</th>
+    <th scope="col">Data</th>
+    <th scope="col">Localização</th>
+    <th scope="col">Compartilhado</th>
+    <th scope="col">Arquivos</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @consultation.treatments.each do |treatment| %>
+    <tr>
+      <td><%= treatment.title %></td>
+      <td><%= treatment.treatment_date.strftime("%d/%m/%Y %k:%M") %></td>
+      <td><%= treatment.treatment_location %></td>
+      <td><%= treatment.shared %></td>
+      <td>
+        <% treatment.files.each do |file| %>
+          <%= link_to file.filename, url_for(file), class: 'downloads', target: '_blank' %>
+          <br>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 
 <br>
 <%= link_to 'Editar', edit_consultation_path(@consultation), class: "btn btn-primary text-white" %>

@@ -2,4 +2,4 @@
 <hr/>
 <%= render 'form', treatment: @treatment %>
 
-<%= link_to 'Voltar', treatments_path, :class => 'btn btn-secondary text-white' %>
+<%= link_to 'Voltar', consultation_treatments_path(@consultation), :class => 'btn btn-secondary text-white' %>
