@@ -1,4 +1,4 @@
-<%= form_with(model: treatment, url: @url, local: true) do |form| %>
+<%= form_with(model: [@consultation, treatment], local: true) do |form| %>
   <% if treatment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(treatment.errors.count, "error") %> prohibited this treatment from being saved:</h2>
@@ -33,13 +33,6 @@
       <%= form.label :treatment_location, :class =>"form-label" %>
       <%= form.text_field :treatment_location, :class=>"form-control" %>
     </div>  
-  </div>
-
-  <div class="row">
-    <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
-      <%= form.label :shared, :class =>"form-label" %>
-      <%= form.number_field :shared, :class=>"form-control" %>
-    </div>
   </div>
 
   <div class="row">

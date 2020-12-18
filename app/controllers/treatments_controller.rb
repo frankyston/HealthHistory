@@ -19,12 +19,10 @@ class TreatmentsController < ApplicationController
   # GET /treatments/new
   def new
     @treatment = @consultation.treatments.new
-    @url = consultation_treatments_path(@consultation)
   end
 
   # GET /treatments/1/edit
   def edit
-    @url = consultation_treatment_path(@consultation)
   end
 
   # POST /treatments

@@ -19,12 +19,10 @@ class ExamsController < ApplicationController
   # GET /exams/new
   def new
     @exam = @consultation.exams.new
-    @url = consultation_exams_path(@consultation)
   end
 
   # GET /exams/1/edit
   def edit
-    @url = consultation_exam_path(@consultation)
   end
 
   # POST /exams
